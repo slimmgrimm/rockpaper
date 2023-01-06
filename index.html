@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rockpaper</title>
     <script>
-        //function getComputerChoice(); will randomly return 'Rock', 'Paper', or 'Scissors'
-        //maybe use an array or randomNum() and 0,1,2 switch cases?
-       
-        
+        //Upon page refresh, automatically starts a 5 round game of Rock, Paper, Scissors. 
+        //Returns the number of wins at the end.
+        let playerScore = 0;
+
         function getComputerChoice() {
             let computerSelection
+
             switch (Math.floor(Math.random() * 3)) {
                 case 0:
                     computerSelection = "rock";
@@ -20,28 +22,64 @@
                     break;
                 case 2: computerSelection = "scissors";
                     break;
-                default: window.alert("check engine");   
+                default: window.alert("check engine");
             }
-            window.alert(computerSelection);
+            window.alert("Computer throws: " + computerSelection);
+            return computerSelection;
         }
-        getComputerChoice();
 
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = window.prompt("Type rock, paper, or scissors").toLowerCase();
+            computerSelection = getComputerChoice();
 
+            switch (playerSelection) {
+                case 'rock': if (computerSelection == "scissors") {
+                        window.alert("You win!");
+                        playerScore++;
+                        return playerScore;
+                    } else if (computerSelection == "paper") {
+                        window.alert("You lose!");
+                    } else if (computerSelection == "rock") {
+                        window.alert("Draw!");
+                    }
+                    break;
+                case 'paper': if (computerSelection == "rock") {
+                        window.alert("You win!");
+                        playerScore++;
+                        return playerScore;
+                    } else if (computerSelection == "scissors") {
+                        window.alert("You lose!");
+                    }   else if (computerSelection == "paper") {
+                        window.alert("Draw!");
+                    }
+                    break;
+                case 'scissors': if (computerSelection == "paper") {
+                        window.alert("You win!");
+                        playerScore++;
+                        return playerScore;
+                    } else if (computerSelection == "rock") {
+                        window.alert("You lose!");
+                    } else if (computerSelection == "scissors") {
+                        window.alert("Draw!");
+                    }
+                    break;
+            }
+        }
 
-        //function playerSelection(); will prompt() user for input. should be case insensitive
-        //save player's input to a variable that can be compared to computerSelection
+        function startGame() {
+            for (let i = 0; i < 5; i++) {
+                window.alert("Round: " + (i + 1));
+                playRound();
+            }
+            window.alert("You won: " + playerScore + " out of 5 rounds.");
+        }
 
-
-        //function playRound(playerSelection, computerSelection) {} 
-        //player input compares to computer and outputs a win/loss message
-        //further break down this problem. There are smaller problems to solve within this function
-
-        //function game() will execute playRound() 5 times then tally the score and announce a winner
-        //for (let i=0; i < 5; i++){}
-        
+        startGame();
     </script>
 </head>
+
 <body>
-<!--html comment vs //js comment in <script> section-->
+    <!--html comment vs //js comment in <script> section-->
 </body>
+
 </html>
