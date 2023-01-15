@@ -10,6 +10,13 @@
         //Upon page refresh, automatically starts a 5 round game of Rock, Paper, Scissors. 
         //Returns the number of wins at the end.
         let playerScore = 0;
+        let computerScore = 0;
+        let pScore = 0;
+        let cScore = 0;
+        let game = document.getElementById('game');
+        
+        const div = document.createElement('div');
+        
 
         function getComputerChoice() {
             let computerSelection
@@ -29,19 +36,21 @@
         }
 
         function playRound(playerSelection, computerSelection) {
-            playerSelection = window.prompt("Type rock, paper, or scissors").toLowerCase();
+            //playerSelection = window.prompt("Type rock, paper, or scissors").toLowerCase();
             computerSelection = getComputerChoice();
 
             switch (playerSelection) {
                 case 'rock': if (computerSelection == "scissors") {
                         window.alert("You win!");
                         playerScore++;
-                        return playerScore;
-                    } else if (computerSelection == "paper") {
+                    } else if (computerSelection == "paper") {    
                         window.alert("You lose!");
+                        computerScore++;
                     } else if (computerSelection == "rock") {
                         window.alert("Draw!");
                     }
+                    console.log(playerScore, computerScore);
+                    div.textContent = (`fucking code no work! ${playerScore} fuckin' ${computerScore} `);
                     break;
                 case 'paper': if (computerSelection == "rock") {
                         window.alert("You win!");
@@ -49,6 +58,7 @@
                         return playerScore;
                     } else if (computerSelection == "scissors") {
                         window.alert("You lose!");
+                        computerScore++;
                     }   else if (computerSelection == "paper") {
                         window.alert("Draw!");
                     }
@@ -59,6 +69,7 @@
                         return playerScore;
                     } else if (computerSelection == "rock") {
                         window.alert("You lose!");
+                        computerScore++;
                     } else if (computerSelection == "scissors") {
                         window.alert("Draw!");
                     }
@@ -66,19 +77,26 @@
             }
         }
 
-        function startGame() {
-            for (let i = 0; i < 5; i++) {
-                window.alert("Round: " + (i + 1));
-                playRound();
-            }
-            window.alert("You won: " + playerScore + " out of 5 rounds.");
-        }
+        //function startGame() {
+          //  for (let i = 0; i < 5; i++) {
+            //    window.alert("Round: " + (i + 1));
+              //  playRound();
+            //}
+            //window.alert("You won: " + playerScore + " out of 5 rounds.");
+        //}
 
-        startGame();
+        //startGame();
     </script>
 </head>
 
 <body>
+    <button onclick="playRound('rock');">Rock</button>
+    <button onclick="playRound('paper');">Paper</button>
+    <button onclick="playRound('scissors');">Scissors</button>
+    <!--<div id="game">
+        <span class="pScore">0</span>
+        <span class="cScore">0</span>
+    </div>-->
     <!--html comment vs //js comment in <script> section-->
 </body>
 
