@@ -3,14 +3,16 @@ let computerScore = 0;
 let announcer = document.getElementById('announcer');
 let pScore = document.getElementById('pScore');
 let cScore = document.getElementById('cScore');
-pScore.textContent = "Player: ";
-cScore.textContent = "Computer: ";
+pScore.textContent = "0";
+cScore.textContent = "0";
+
+
 
 
 
 
 function getComputerChoice() {
-    let computerSelection
+    let computerSelection = '';
 
     switch (Math.floor(Math.random() * 3)) {
         case 0:
@@ -33,13 +35,13 @@ function playRound(playerSelection, computerSelection) {
        playerSelection == 'paper' && computerSelection == 'rock' ||
        playerSelection == 'scissors' && computerSelection == 'paper'){
             playerScore++;
-            pScore.textContent = `Player: ${playerScore}`;
+            pScore.textContent = `${playerScore}`;
             announcer.textContent = `The Player throws ${playerSelection} and the AI throws ${computerSelection}. \nThe player wins!`;
         } else if(playerSelection == 'rock' && computerSelection == 'paper' ||
                   playerSelection == 'paper' && computerSelection == 'scissors' ||
                   playerSelection == 'scissors' && computerSelection == 'rock'){
                       computerScore++;
-                      cScore.textContent = `Computer: ${computerScore}`;
+                      cScore.textContent = `${computerScore}`;
                       announcer.textContent = `The Player throws ${playerSelection} but the AI throws ${computerSelection}. \nThe AI wins!`;
         } else {
             announcer.textContent = `The Player throws ${playerSelection} and the AI throws ${computerSelection} too. \nIt's a draw!`;
@@ -53,6 +55,6 @@ function gameOver() {
     window.alert('New game!');
     playerScore = 0;
     computerScore = 0;
-    pScore.textContent = `Player: ${playerScore}`;
-    cScore.textContent = `Computer: ${computerScore}`;
+    pScore.textContent = `${playerScore}`;
+    cScore.textContent = `${computerScore}`;
 }
