@@ -19,17 +19,17 @@ header {
 .scoreboard {
     display: flex;
     justify-content: center;
-    border: 1rem solid white;
+    border: .5rem solid white;
     color: red;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding-top: 5%;
     padding-bottom: 5%;
     padding-left: 5%;
     padding-right: 5%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-right: 15%;
-    margin-left: 15%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 3rem;
+    margin-left: 3rem;
     background-color: rgb(40, 50, 200);
 
 }
@@ -37,29 +37,33 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: .5rem solid whitesmoke;
+    border: 4px solid whitesmoke;
     font-size: 24px;
     margin: 5%;
     padding: 2%;
     background-color: black;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
 }
 .home #pScore{
-    font-size: 98px;
-    flex: 3 1 0;
+    font-size: 72px;
 }
 .away {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: .5rem solid whitesmoke;
+    border: 4px solid whitesmoke;
     font-size: 24px;
     margin: 5%;
     padding: 2%;
     background-color: black;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
 }
 .away #cScore {
-    flex: 3 1 0;
-    font-size: 98px;
+    font-size: 72px;
 }
 #announcer {
     padding-right: 30%;
@@ -73,7 +77,8 @@ header {
 }
 .input {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: center;
 }
 button {
