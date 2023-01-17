@@ -19,7 +19,7 @@ header {
 .scoreboard {
     display: flex;
     justify-content: center;
-    border: .5rem solid white;
+    border: 8px solid white;
     color: red;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding-top: 5%;
@@ -28,8 +28,8 @@ header {
     padding-right: 5%;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    margin-right: 3rem;
-    margin-left: 3rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
     background-color: rgb(40, 50, 200);
 
 }
